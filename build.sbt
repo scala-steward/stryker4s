@@ -2,7 +2,11 @@ lazy val root = (project withId "stryker4s" in file("."))
   .settings(
     Settings.buildLevelSettings,
     skip in publish := true,
-    mainClass in (Compile, run) := Some("stryker4s.run.Stryker4sCommandRunner")
+    mainClass in (Compile, run) := Some("stryker4s.run.Stryker4sCommandRunner"),
+    onLoad in Global ~= (state => {
+      val hooks: State => State = "writeHooks" :: _
+      state andThen hooks
+    })
   )
   .aggregate(stryker4sCore, sbtStryker4s, stryker4sCommandRunner)
   .dependsOn(stryker4sCommandRunner) // So 'run' command also works from root of project
