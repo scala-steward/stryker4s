@@ -1,4 +1,4 @@
-addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.12.0")
+addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.12.1")
 addSbtPlugin("io.stryker-mutator" % "sbt-stryker4s" % "1.1.1")
 addSbtPlugin("org.typelevel" % "sbt-tpolecat" % "0.5.7")
 
